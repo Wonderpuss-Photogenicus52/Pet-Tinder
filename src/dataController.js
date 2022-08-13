@@ -6,9 +6,11 @@ const loginController = (username, password) => {
         username, 
         password
     }
-  }).then((err, res)=>{
-    if(err){return next(err)}
+  }).then((res) => {
+    alert(res.data.username.toString() + ' ' + res.data.bio.toString());
   })
 };
+
+// Implement getUsers and set User Controllers (get and post) for /signup and for /home
 
 module.exports = { loginController };
