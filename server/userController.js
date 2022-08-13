@@ -5,11 +5,13 @@ const petTinderController = {};
 // GET FOR LOGIN PAGE
 petTinderController.getUser = (req, res, next) => {
   // EDIT QUERY SO ONLY FOR ONE USER, GET FROM DATA PASSED IN REQ
-  console.log(req.body);
+  console.log(req.query);
   const queryString = `
-    SELECT * FROM users;
+    SELECT * FROM users
+    WHERE username = $1 AND password = $2;
   `;
-  db.query(queryString).then((data) => {
+  const values = [req.query.username, req.query.password];
+  db.query(queryString, values).then((data) => {
     res.locals.users = data.rows;
     return next();
   }).catch((err) => next({
