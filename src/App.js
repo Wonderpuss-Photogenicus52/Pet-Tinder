@@ -1,10 +1,13 @@
 import React from 'react'
 import Signup from './components/Signup'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  return (
-   <Signup />
-  )
+  <main>
+    <switch>
+      <Route path='/' component={<Signup/>} />
+    </switch>
+  </main>  
 }
 
 export default App
