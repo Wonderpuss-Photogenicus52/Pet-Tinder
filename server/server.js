@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const apiRouter = require("./router");
+const router = require("./router");
 
 const app = express();
 const PORT = 4000;
@@ -11,11 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
-app.use('./router', apiRouter);
-app.get('/shh',(req,res)=>{res.send('!!!!')})
+app.use('/', router);
 
 // Local error handler
-app.use((req,res) => res.status(404).send('This Page Does not exist.'));
+app.use((req,res) => res.status(404).send('This page does not exist.'));
 
 // Global error handler
 app.use((err, req, res, next) => {

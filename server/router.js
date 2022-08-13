@@ -1,11 +1,11 @@
 const express = require("express");
-// placeholder for controller
 const controller = require("./userController");
 const router = express.Router();
 
-router.get('/login', controller.getUser, (req, res) => {
-  res.status(200).json();
-});
+router.get('/login',
+  controller.getUser,
+  (req, res) => res.status(200).json(res.locals.users)
+);
 
 router.post('/signup', controller.postUser, (req, res) => {
     res.status(200).json();
