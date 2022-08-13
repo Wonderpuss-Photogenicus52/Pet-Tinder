@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --port 3000",
     "dev": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +27,10 @@
     "@babel/runtime": "^7.18.9",
     "cors": "^2.8.5",
     "pg": "^8.7.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "file-loader": "^6.2.0",
+    "image-loader": "^0.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "style-loader": "^3.3.1",
@@ -36,6 +40,7 @@
   },
   "devDependencies": {
     "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1"
+    "css-loader": "^6.7.1",
+    "react-router-dom": "^6.3.0"
   }
 }

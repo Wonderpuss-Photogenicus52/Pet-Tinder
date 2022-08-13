@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('./router', apiRouter);
+app.get('/shh',(req,res)=>{res.send('!!!!')})
 
 // Local error handler
 app.use((req,res) => res.status(404).send('This Page Does not exist.'));
