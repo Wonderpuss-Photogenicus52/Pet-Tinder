@@ -1,55 +1,34 @@
-const express = require('express');
+const express = require("express");
+const cors = require("cors");
+
+const apiRouter = require("./router");
+
 const app = express();
-
-
-const path = require('path');
-var cors = require('cors')
-
 const PORT = 4000;
 
-
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cors());
 
+app.use('./router', apiRouter);
+app.get('/shh',(req,res)=>{res.send('!!!!')})
 
+// Local error handler
+app.use((req,res) => res.status(404).send('This Page Does not exist.'));
 
-
-
-
-
-
-
-app.get('/login', (req, res) => {
-   
-   res.send('!!!')
-});
-
-
-
-
-
-
-
-
-
-
-
-app.use((req, res) => res.sendStatus(404));
-
+// Global error handler
 app.use((err, req, res, next) => {
-  const defaultErr = {
-    log: 'Express error handler caught unknown middleware error',
-    status: 400,
-    message: { err: 'An error occurred' },
-  };
-  const errorObj = Object.assign({}, defaultErr, err);
- 
-  return res.status(errorObj.status).json(errorObj.message);
+    const defaultErr = {
+        log: 'Express error handler caughtunknown middleware error',
+        status: 500,
+        message: { err: 'An error occurred'},
+        
+    };
 });
 
+app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}...`)
+});
 
-
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
-
-
+module.exports = app;
