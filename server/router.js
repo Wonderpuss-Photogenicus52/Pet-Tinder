@@ -2,7 +2,7 @@ const express = require("express");
 const controller = require("./userController");
 const router = express.Router();
 
-router.get('/login',
+router.post('/login',
   controller.getUser,
   (req, res) => res.status(200).json(res.locals.users)
 );

@@ -5,6 +5,7 @@ const petTinderController = {};
 // GET FOR LOGIN PAGE
 petTinderController.getUser = (req, res, next) => {
   // EDIT QUERY SO ONLY FOR ONE USER, GET FROM DATA PASSED IN REQ
+  console.log(req.body);
   const queryString = `
     SELECT * FROM users;
   `;
