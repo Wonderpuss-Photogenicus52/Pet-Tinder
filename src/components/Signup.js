@@ -5,6 +5,7 @@ class Signup extends React.Component {
 
     render(){
         return(
+           
         <div className="d-flex justify-content-center mt-5 ">
 
             <div className="d-flex flex-column justify-content-center border border-dark p-2 "style={{maxWidth:'600px',borderRadius:'20px'}}>

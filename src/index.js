@@ -2,7 +2,6 @@ import React from 'react';
 import * as ReactDOMClient from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
-import  '../src/components/tinder.png'
 
 
 
@@ -13,5 +12,5 @@ ReactDOMClient
 .render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>, 
+  </BrowserRouter>
 );
