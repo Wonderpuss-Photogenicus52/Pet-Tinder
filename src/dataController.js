@@ -19,12 +19,23 @@ const loginController = (username, password) => {
     const incorrect = document.querySelector('#incorrect')
     incorrect.innerText = "wrong username or password"
 
-
    }
     
   }).catch((err) => alert(err.response.data));
 };
 
-// Implement getUsers and set User Controllers (get and post) for /signup and for /home
+const getCurrentUser = () =>{}
 
-module.exports = { loginController };
+const getProfiles = () => {
+
+  axios.get('http://localhost:4000/home', {
+  
+  }).then((res) => {
+    
+    console.log(res.data)
+    return(res.data)
+    
+  }).catch((err) => alert(err.response.data));
+}
+
+module.exports = { loginController, getProfiles };

@@ -1,8 +1,29 @@
 import React from "react";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
+import { getCurrentUser, getProfiles } from "../dataController";
 
 import './Layout.css'
 
 class Layout extends React.Component{
+   
+  
+
+   constructor(props){
+      super(props); 
+      this.state ={
+        profiles: undefined,
+        currentUser: undefined, 
+        isLoggedIn: undefined
+      }
+   }
+
+   componentDidMount(){
+    this.setState({
+      profiles: getProfiles(), 
+      currentUser: getCurrentUser(), 
+    })
+   }
+   
 
     render(){
         return(            
