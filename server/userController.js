@@ -67,8 +67,32 @@ petTinderController.postUser = (req, res, next) => {
 
 
 // GET FOR HOME PAGE
-petTinderController.getUsers = (req, res, next) => {
-  return next();
-}
+
+
+
+  petTinderController.getUsers = (req, res, next) => {
+    const queryString = `
+      SELECT * FROM users;
+    `;
+    db.query(queryString).then((data) => {
+    
+  
+      const userArray = [];
+      for (let i = 0; i < data.rows.length; i++) {
+        let { username, bio, imageurl } = data.rows[i];
+        userArray.push({username, bio, imageurl});
+      }
+      res.locals.usersInfo = userArray;
+     
+      return next();
+    }).catch((err) => next({
+      log: `Error in petTinderController.getUser: ${err}`,
+      status: 400,
+      message: 'Query for users unsuccessful, check server',
+    }));
+  }
+  
+
+
 
 module.exports = petTinderController;

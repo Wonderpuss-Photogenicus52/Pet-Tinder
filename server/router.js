@@ -21,7 +21,7 @@ router.post('/signup', controller.postUser, (req, res) => {
 });
 
 router.get('/home', controller.getUsers, (req, res) => {
-    res.status(200).json();
+    res.status(200).json(res.locals.usersInfo);
 });
 
 
