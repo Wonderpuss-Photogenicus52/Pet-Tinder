@@ -19,7 +19,7 @@ petTinderController.getUser = (req, res, next) => {
       return next();
   }
     const { username, bio, imageurl } = data.rows[0];
-    res.locals.userInfo = { username, bio };
+    res.locals.userInfo = { username, bio, imageurl };
     res.locals.foundUser = true;
     return next();
   }).catch((err) => next({
@@ -75,7 +75,6 @@ petTinderController.getUsers = (req, res, next) => {
   }
     const userArray = [];
     for (let i = 0; i < data.rows.length; i++) {
-      console.log(data.rows[i]);
       let { username, bio, imageurl } = data.rows[i];
       userArray.push({username, bio, imageurl});
     }

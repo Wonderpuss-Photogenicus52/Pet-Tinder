@@ -6,7 +6,7 @@ router.get('/login',
   controller.getUser,
  
   (req, res) => {
-    res.status(200).send(res.locals.userInfo);
+    res.status(200).send(res.locals);
   }
 );
 
