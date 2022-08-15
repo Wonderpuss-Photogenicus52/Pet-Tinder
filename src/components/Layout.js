@@ -5,9 +5,7 @@ import './Layout.css'
 class Layout extends React.Component{
 
     render(){
-        return(
-
-            
+        return(            
             <div className='d-md-flex d-none justify-content-center align-items-center p-5'>
             <div id="carouselExampleIndicators" className="carousel slide slides mt-5" data-bs-ride="true">
           <div class="carousel-indicators">

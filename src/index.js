@@ -10,6 +10,8 @@ import App from './App';
 ReactDOMClient
 .createRoot(document.querySelector("#root"))
 .render(
+  // wraps App in react router and renders app component: more detailed routing configuration is in tha
+  // App.js component file. 
   <BrowserRouter>
     <App />
   </BrowserRouter>
