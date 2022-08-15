@@ -2,6 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from './tinder.png'
 import {loginController} from '../dataController';
+import jwtDecode from "jwt-decode";
+
+function handleCredentialResponse(response) {
+    console.log("JWT ID token: " + response.credential);
+    const jwtcode =  jwtDecode(response.credential);
+    console.log(jwtcode);
+    console.log("this is picture", jwtcode.picture);
+  
+
+    
+    window.location.href = 'http://localhost:3000/home?user=' + jwtcode.family_name + jwtcode.given_name+'&picture='+jwtcode.picture;
+
+
+  }
+  window.onload = function () {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "298306516441-dnbsq4lb4afppq20nu6bkvb2u2gnd8hh.apps.googleusercontent.com",
+      callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", width:'400px' }  // customization attributes
+    );
+    google.accounts.id.prompt(); // also display the One Tap dialog
+  }
 
 
 class Login extends React.Component {
@@ -30,6 +56,9 @@ class Login extends React.Component {
                 <Link to='/Signup'><button className="btn btn-lg btn-success mt-3 me-3 mb-3"  > SIGN UP</button></Link>
                 </div>
                 </form>
+                <div className="d-flex justify-content-center">
+                <div className="googlebtn mt-3 mb-3" id="buttonDiv"></div>
+                </div>
                 </div>
             </div>
         );

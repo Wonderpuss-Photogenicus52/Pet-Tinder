@@ -14,7 +14,7 @@ class Navbar extends React.Component{
               <div className="collapse navbar-collapse " id="navbarNavDropdown">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link active text-light fs-3 fw-bold" aria-current="page" href="/home">Home</a>
+                    <a className="nav-link active text-light fs-3 fw-bold" aria-current="page" href="/">Home</a>
                   </li>
                   <li className="nav-item ">
                     <a className="nav-link text-light fs-3 fw-bold" href="/about">About</a>
