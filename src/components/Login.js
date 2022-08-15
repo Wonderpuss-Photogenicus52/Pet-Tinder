@@ -3,15 +3,24 @@ import { Link } from "react-router-dom";
 import logo from './tinder.png'
 import {loginController} from '../dataController';
 import jwtDecode from "jwt-decode";
+const axios = require('axios');
 
 function handleCredentialResponse(response) {
-    console.log("JWT ID token: " + response.credential);
-    const jwtcode =  jwtDecode(response.credential);
-    console.log(jwtcode);
-    console.log("this is picture", jwtcode.picture);
-  
 
+
+
+    const jwtcode =  jwtDecode(response.credential);
     
+    axios.post("http://localhost:4000/signup", {
+     
+      username: jwtcode.family_name+jwtcode.given_name,
+      password:'',
+      bio:''
+     
+    })
+    .then((response) => alert(response))
+    .catch((err) => console.log(err));
+   
     window.location.href = 'http://localhost:3000/home?user=' + jwtcode.family_name + jwtcode.given_name+'&picture='+jwtcode.picture;
 
 
@@ -40,6 +49,15 @@ class Login extends React.Component {
     };
 
     render(){
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+  
+      const exist = urlParams.get('exist')
+      let usernameExist;
+      if(exist === 'true') usernameExist='username exists'
+      //check whether the response is telling use username exists
+      //change the text to username exists
         return(
             
         <div className="d-flex justify-content-center mt-5 ">
@@ -51,6 +69,7 @@ class Login extends React.Component {
                 <input name='username' id="username" className="form-control form-control-lg mt-5" type="text" placeholder="username" aria-label=".form-control-lg example"/>
                 <input name='password' id="password" className="form-control form-control-lg mt-1" type="password" placeholder="password" aria-label=".form-control-lg example"/>
                 <div id="incorrect" className="fs-1 text-danger d-flex justify-content-center"></div>
+                <div className="fs-1 text-danger d-flex justify-content-center">{usernameExist}</div>
                 <div className="d-flex justify-content-center">
                 <button className="btn btn-lg btn-primary mt-3 mb-3 me-3" type="submit" onClick={this.handleLogin}>LOGIN</button>
                 

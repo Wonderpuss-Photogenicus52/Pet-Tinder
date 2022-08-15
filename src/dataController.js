@@ -8,7 +8,7 @@ const loginController = (username, password) => {
     }
   }).then((res) => {
     
-    console.log(res)
+  
 
     if(res.data.foundUser){
       window.location.href = 'http://localhost:3000/home'
