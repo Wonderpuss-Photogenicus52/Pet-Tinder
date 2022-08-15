@@ -22,8 +22,10 @@ app.use((err, req, res, next) => {
         log: 'Express error handler caughtunknown middleware error',
         status: 500,
         message: { err: 'An error occurred'},
-        
     };
+    const errorObj = Object.assign({}, defaultErr, err);
+    console.log(errorObj.log);
+    return res.status(errorObj.status).json(errorObj.message);
 });
 
 app.listen(PORT, () => {

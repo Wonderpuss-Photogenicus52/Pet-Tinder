@@ -50,6 +50,7 @@ class Login extends React.Component {
                 <form action="http://localhost:4000/login" method="post">
                 <input name='username' id="username" className="form-control form-control-lg mt-5" type="text" placeholder="username" aria-label=".form-control-lg example"/>
                 <input name='password' id="password" className="form-control form-control-lg mt-1" type="password" placeholder="password" aria-label=".form-control-lg example"/>
+                <div id="incorrect" className="fs-1 text-danger d-flex justify-content-center"></div>
                 <div className="d-flex justify-content-center">
                 <button className="btn btn-lg btn-primary mt-3 mb-3 me-3" type="submit" onClick={this.handleLogin}>LOGIN</button>
                 

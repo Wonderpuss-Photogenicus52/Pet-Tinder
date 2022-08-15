@@ -4,7 +4,14 @@ const router = express.Router();
 
 router.get('/login',
   controller.getUser,
-  (req, res) => res.status(200).json(res.locals.userInfo)
+ 
+  (req, res) => {res.status(200).send(res.locals);
+ 
+  }
+
+
+  // (req, res) => redirect('http://localhost:3000/home')
+
 );
 
 router.post('/signup', controller.postUser, (req, res) => {

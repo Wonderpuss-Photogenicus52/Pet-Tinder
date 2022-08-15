@@ -25,7 +25,7 @@ return(
     
    
     </div>
-    <div className="d-flex flex-column ">
+    <div className="d-flex flex-column text-center">
             <div className="fs-1 text-dark fw-bold " style={{fontFamily:'cursive'}}>FIND YOUR LOVE </div>
             
             <div className="d-flex flex-column justify-content-center border border-dark p-2 bg-light "style={{maxWidth:'600px',borderRadius:'20px',backgroundImage: 'linear-gradient(#8ab5f6, #fff6d4, #dcd3ef, #f9edf6)'}}>

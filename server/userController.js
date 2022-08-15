@@ -12,8 +12,17 @@ petTinderController.getUser = (req, res, next) => {
   `;
   const values = [req.query.username, req.query.password];
   db.query(queryString, values).then((data) => {
+    if (!data.rows.length){
+      console.log('no user');
+      res.locals.foundUser = false
+      return next();
+  }
+
+
+
     const { username, bio } = data.rows[0];
     res.locals.userInfo = { username, bio };
+    res.locals.foundUser = true;
     return next();
   }).catch((err) => next({
     log: `Error in petTinderController.getUser: ${err}`,
