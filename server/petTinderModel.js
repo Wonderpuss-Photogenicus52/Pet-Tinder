@@ -1,11 +1,22 @@
 const { Pool } = require('pg');
 
-const PG_URI = 'postgres://mrcixrrb:pyP8648_VMjFGCe6YTJ0h-NvlDlge1p9@salt.db.elephantsql.com/mrcixrrb';
+// CREATE NEW DATABASE TABLE BEFORE USING SERVER
+
+// CREATE TABLE users (
+//   _id SERIAL,
+//   username varchar NOT NULL,
+//   password varchar NOT NULL,
+//   bio varchar,
+//   imageURL varchar
+// );
+const PG_URI = 'postgres://pfpjejqu:KHamH45vgQ-vALLjzd4c-kqvk5Y5dGS7@heffalump.db.elephantsql.com/pfpjejqu';
 
 // create a new pool here using the connection string above
 const pool = new Pool({
   connectionString: PG_URI
 });
+
+
 
 // Adding some notes about the database here will be helpful for future you or other developers.
 // Schema for the database can be found below:

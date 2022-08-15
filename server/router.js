@@ -5,13 +5,9 @@ const router = express.Router();
 router.get('/login',
   controller.getUser,
  
-  (req, res) => {res.status(200).send(res.locals);
- 
+  (req, res) => {
+    res.status(200).send(res.locals.userInfo);
   }
-
-
-
-
 );
 
 router.post('/signup', controller.postUser, (req, res) => {
@@ -21,7 +17,7 @@ router.post('/signup', controller.postUser, (req, res) => {
 });
 
 router.get('/home', controller.getUsers, (req, res) => {
-    res.status(200).json();
+    res.status(200).json(res.locals.usersInfo);
 });
 
 
