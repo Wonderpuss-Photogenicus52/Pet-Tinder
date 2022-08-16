@@ -1,0 +1,20 @@
+
+.carousel-item{
+
+
+    width: 868px;
+     height: 400px;
+ 
+ }
+
+.carousel-inner{
+
+
+  max-width:  768px;
+   max-height: 700px;
+}
+
+body{
+
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/92/12/9057e226f57d435.jpg');
+}

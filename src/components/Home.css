@@ -1,0 +1,35 @@
+.profilebox{
+
+
+position: fixed;
+left: 30px;
+
+}
+
+
+
+
+.like:hover{
+
+
+    cursor: pointer;
+
+    
+}
+
+.dislike:hover{
+
+
+    cursor: pointer;
+
+    
+}
+
+.paw:hover{
+
+
+    cursor: pointer;
+
+    
+}
+
